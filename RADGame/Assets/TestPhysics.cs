@@ -17,15 +17,15 @@ public class TestPhysics : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            ourRigidbody.AddExplosionForce(1000,transform.position+ Vector3.down+ Vector3.back,2);
+            ourRigidbody.AddExplosionForce(1000,transform.position+ Vector3.back,2);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            ourRigidbody.AddExplosionForce(500, transform.position + Vector3.left + Vector3.back, 2);
+            ourRigidbody.AddExplosionForce(500, transform.position + Vector3.left , 2);
         }
-    if (Input.GetKeyDown(KeyCode.UpArrow))
+    if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            ourRigidbody.AddExplosionForce(500, transform.position + Vector3.right + Vector3.back, 2);
+            ourRigidbody.AddExplosionForce(500, transform.position + Vector3.right, 2);
         }
 
 

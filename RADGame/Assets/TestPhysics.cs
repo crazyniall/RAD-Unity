@@ -4,35 +4,38 @@ using UnityEngine;
 
 public class TestPhysics : MonoBehaviour
 {
-    Rigidbody ourRigidbody;
+    Rigidbody ourRigidBody;
     // Start is called before the first frame update
     void Start()
     {
-        ourRigidbody = GetComponent<Rigidbody>();  
+        ourRigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
-    { 
+    {
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            ourRigidbody.AddExplosionForce(1000,transform.position+ Vector3.back,2);
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            ourRigidbody.AddExplosionForce(500, transform.position + Vector3.left , 2);
-        }
-    if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            ourRigidbody.AddExplosionForce(500, transform.position + Vector3.right, 2);
-        }
+            ourRigidBody.AddExplosionForce(1000, transform.position + Vector3.down + 2 * Vector3.back, 3);
 
+        }
 
     }
+
     private void OnCollisionEnter(Collision collision)
     {
+        GameObject objectHit = collision.gameObject;
+        healthScript objectHitHealth = objectHit.GetComponent<healthScript>();
+        if (objectHitHealth)
+        {
+            objectHitHealth.takeDamage(20);
+        }
         print("Ouch");
     }
+
+
+
+
 
 }
